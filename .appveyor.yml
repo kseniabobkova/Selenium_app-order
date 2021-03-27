@@ -5,7 +5,7 @@ branches:
     - main
 build: off
 install:
-  - chmod +x driver/linux/chromedriver
+  - chmod +x ./artifacts/chromedriver
   - java -jar ./artifacts/app-order.jar &
   - chmod +x gradlew
 build_script:
