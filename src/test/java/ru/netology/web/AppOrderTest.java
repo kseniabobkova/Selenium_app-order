@@ -46,4 +46,17 @@ class AppOrderTest {
 
 
     }
+
+    @Test
+    void shouldTestV2() {
+        driver.get("http://localhost:9999/");
+        driver.findElement(By.cssSelector("[type='text']")).sendKeys("Vasily Petrov");
+        driver.findElement(By.cssSelector("[type=tel]")).sendKeys("+79123456789");
+        driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
+        driver.findElement(By.cssSelector("[type='button']")).click();
+        String text = driver.findElement(By.className("input__sub")).getText();
+        assertEquals("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.", text.trim());
+
+
+    }
 }
